@@ -12,11 +12,12 @@ import FirebaseAuth
 import FirebaseDatabase
 import LBTAComponents
 
-class ViewController: UIViewController {
+class ViewController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        /* UI */
+        collectionView?.backgroundColor = .yellow
         
         /* FIREBASE */
         FirebaseApp.configure()
@@ -34,14 +35,15 @@ class ViewController: UIViewController {
         let userID = Auth.auth().currentUser?.uid
         print("USERID: " + userID!)
         
-        /* UI */
-        view?.backgroundColor = .yellow
     }
 
+    // OTHER
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
 
 
 }

@@ -20,10 +20,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         
-        //        let homeController = HomeController(collectionViewLayout: UICollectionViewFlowLayout())
-        //        window?.rootViewController = UINavigationController(rootViewController: homeController)
+        let viewController = ViewController(collectionViewLayout: UICollectionViewFlowLayout())
+        //window?.rootViewController = UINavigationController(rootViewController: homeController)
         
-        window?.rootViewController = UINavigationController(rootViewController: ViewController())
+        window?.rootViewController = UINavigationController(rootViewController: viewController)
         
         return true
     }
