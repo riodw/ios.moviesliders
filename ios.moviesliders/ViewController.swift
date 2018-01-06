@@ -106,6 +106,7 @@ class ViewController: DatasourceController {
         
         // clich
         // interest
+        // https://www.charted.co/c/0d5349f
         
         /* ADD OBJECTS */
         self.view.addSubview(mySlider)
