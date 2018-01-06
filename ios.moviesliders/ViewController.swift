@@ -23,6 +23,13 @@ class ViewController: DatasourceController {
     let mySlider2 = UISlider(frame:CGRect(x: 10, y: 200, width: 300, height: 20))
     let btn = UIButton(frame: CGRect(x: 100, y: 400, width: 100, height: 50))
     let btn2 = UIButton(frame: CGRect(x: 100, y: 500, width: 100, height: 50))
+    
+    let sampleTextField =  UITextField(frame: CGRect(x: 20, y: 100, width: 150, height: 40))
+    
+    let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+    
+    var movie_name = "test"
+    
     /* FIREBASE */
     var ref: DatabaseReference!
     
@@ -50,17 +57,17 @@ class ViewController: DatasourceController {
         self.view.frame =  CGRect(x:0, y: 0, width: 100, height: y)
         
         
-        mySlider.minimumValue = 0
+        mySlider.minimumValue = 1
         mySlider.maximumValue = 100
         mySlider.isContinuous = true
-        mySlider.tintColor = UIColor.green
+        mySlider.tintColor = UIColor.red
         mySlider.addTarget(self, action: #selector(sliderValueDidChange(_:)), for: .valueChanged)
         // width (height)
         mySlider.bounds.size.width = y-150
         mySlider.center = CGPoint(x: w/2-25, y: y/2+10)
         mySlider.transform = CGAffineTransform(rotationAngle: CGFloat(3 * Double.pi / 2))
         
-        mySlider2.minimumValue = 0
+        mySlider2.minimumValue = 1
         mySlider2.maximumValue = 100
         mySlider2.isContinuous = true
         mySlider2.tintColor = UIColor.green
@@ -84,6 +91,22 @@ class ViewController: DatasourceController {
         btn2.tag = 1
         btn2.frame.origin = CGPoint(x: w-100, y: y-10)
         
+        
+        sampleTextField.placeholder = self.movie_name
+        sampleTextField.font = UIFont.systemFont(ofSize: 15)
+        sampleTextField.borderStyle = UITextBorderStyle.roundedRect
+        sampleTextField.autocorrectionType = UITextAutocorrectionType.no
+        
+        sampleTextField.keyboardType = UIKeyboardType.default
+        sampleTextField.returnKeyType = UIReturnKeyType.done
+        sampleTextField.clearButtonMode = UITextFieldViewMode.whileEditing;
+        sampleTextField.contentVerticalAlignment = UIControlContentVerticalAlignment.center
+        
+        sampleTextField.frame.origin = CGPoint(x: w/2-75, y: y-10-40-10)
+//        sampleTextField.delegate = self
+        sampleTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+        
+        
         // Swipe
         
         
@@ -103,8 +126,16 @@ class ViewController: DatasourceController {
             self.view.addGestureRecognizer(gesture)
         }
         
+        //Looks for single or multiple taps.
         
-        // clich
+        
+        //Uncomment the line below if you want the tap not not interfere and cancel other interactions.
+        //tap.cancelsTouchesInView = false
+        
+        
+        
+        
+        // cliche
         // interest
         // https://www.charted.co/c/0d5349f
         
@@ -113,6 +144,8 @@ class ViewController: DatasourceController {
         self.view.addSubview(mySlider2)
         self.view.addSubview(btn)
         self.view.addSubview(btn2)
+        self.view.addSubview(sampleTextField)
+        self.view.addGestureRecognizer(tap)
         
         
         
@@ -131,6 +164,20 @@ class ViewController: DatasourceController {
         
         /* LOGIC */
         scheduledTimerWithTimeInterval()
+        
+    }
+    
+    @objc func textFieldDidChange(_ textField: UITextField) {
+        if ((textField.text) != nil && (textField.text) != "") {
+            if (textField.text?.last! == " ") {
+                
+                var name = textField.text!
+                name.remove(at: name.index(before: name.endIndex))
+                self.movie_name = name
+                // Hide Keyboard
+                textField.resignFirstResponder()
+            }
+        }
         
     }
     
@@ -181,8 +228,8 @@ class ViewController: DatasourceController {
             print("Slider 2 value \(Int(roundedStepValue2))")
             
             // push change
-            self.ref.child("value").childByAutoId().setValue(roundedStepValue)
-            self.ref.child("value2").childByAutoId().setValue(roundedStepValue2)
+            self.ref.child(self.movie_name).childByAutoId().setValue(roundedStepValue)
+            self.ref.child(self.movie_name + "2").childByAutoId().setValue(roundedStepValue2)
         } else {
             print("OFF")
         }
