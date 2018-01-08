@@ -134,9 +134,17 @@ class ViewController: DatasourceController {
         
         
         
-        
-        // cliche
-        // interest
+        // Interest
+        // c62928
+        // Cliche
+        // 01e675
+        // Funny
+        // 2ab6f6
+        // Dumb
+        // bd00ff
+        // WTF
+        // fdff00
+
         // https://www.charted.co/c/0d5349f
         
         /* ADD OBJECTS */
