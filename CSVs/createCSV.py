@@ -57,33 +57,53 @@ TITLES += '\n'
 CSV += TITLES
 
 
-
+# For File in Passed Directory
 for file in os.listdir('./' + movie):
+    # If file is ".json"
     if file.endswith(".json"):
-
+        # Get File Data
         data = json.load(open('./' + movie + '/' + file))
         total = 0
-
+        # For Key,Value in Data
         for key, value in data.items():
-            # print(key)
-            # CSV += '"' + str(total) + '",' + '"' + str(value) + '",' + '"' + str(value) + '",'
-            # CSV = CSV[:-1]
-            # CSV += '\n'
-            # print(total)
+            # Add Value to Array
             array[total].append(value)
 
             total += 1
 
 
-
- # Remove final ',' from CSV String
 total_time = 0
 
+# If only 2 active
 if(len(array[0]) == 2):
     for x in array:
         CSV += '"' + str(total_time) + '",' + '"' + str(x[0]) + '",' + '"' + str(x[1]) + '"'
         CSV += '\n'
+        # CSV = CSV[:-1]
+        total_time += 2
 
+# If only 3 active
+elif(len(array[0]) == 3):
+    for x in array:
+        CSV += '"' + str(total_time) + '",' + '"' + str(x[0]) + '",' + '"' + str(x[1]) + '",' + '"' + str(x[2]) + '"'
+        CSV += '\n'
+        # CSV = CSV[:-1]
+        total_time += 2
+
+# If only 4 active
+elif(len(array[0]) == 4):
+    for x in array:
+        CSV += '"' + str(total_time) + '",' + '"' + str(x[0]) + '",' + '"' + str(x[1]) + '",' + '"' + str(x[2]) + '",' + '"' + str(x[3]) + '"'
+        CSV += '\n'
+        # CSV = CSV[:-1]
+        total_time += 2
+
+# If only 5 active
+elif(len(array[0]) == 5):
+    for x in array:
+        CSV += '"' + str(total_time) + '",' + '"' + str(x[0]) + '",' + '"' + str(x[1]) + '",' + '"' + str(x[2]) + '",' + '"' + str(x[3]) + '",' + '"' + str(x[3]) + '"'
+        CSV += '\n'
+        # CSV = CSV[:-1]
         total_time += 2
 
 
@@ -93,7 +113,7 @@ if(len(array[0]) == 2):
 '''''''''''''''''''''
 PRINT CSV
 '''''''''''''''''''''
-CSV_out_file = open(movie + '.csv', 'w')
+CSV_out_file = open('./' + movie + '/' + movie + '.csv', 'w')
 CSV_out_file.write(CSV)
 CSV_out_file.close()
 
