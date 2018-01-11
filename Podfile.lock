@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (4.6.0)
   - Firebase/Auth (4.8.0):
     - Firebase/Core
     - FirebaseAuth (= 4.4.1)
@@ -43,14 +44,26 @@ PODS:
     - nanopb/encode (= 0.3.8)
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
+  - SwiftyJSON (4.0.0)
+  - TRON (4.1.0):
+    - Alamofire (~> 4.5)
+    - TRON/SwiftyJSON (= 4.1.0)
+  - TRON/Core (4.1.0):
+    - Alamofire (~> 4.5)
+  - TRON/SwiftyJSON (4.1.0):
+    - Alamofire (~> 4.5)
+    - SwiftyJSON (~> 4.0)
+    - TRON/Core
 
 DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
   - LBTAComponents
+  - TRON
 
 SPEC CHECKSUMS:
+  Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
   Firebase: 710decbbc6d9d48530e9a5dba3209740c3532e05
   FirebaseAnalytics: 5b02a63ead2c3f0259cfc7f15e053e440587ecf8
   FirebaseAuth: dc0dd403beca5b2b016aac89c2d0b8dad1c81926
@@ -62,7 +75,9 @@ SPEC CHECKSUMS:
   LBTAComponents: c4c8863e0ef6715e378300db148b96a09df656f7
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
+  SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
+  TRON: 88868149e9a9588f2c9f2a218c3dbc7dce1f3a47
 
-PODFILE CHECKSUM: 4235b28c3a1c2d04f78a70af73ae6bba6e810877
+PODFILE CHECKSUM: 529d5ce98ceb6a29e692ab2a9bff455b943e581e
 
 COCOAPODS: 1.2.1

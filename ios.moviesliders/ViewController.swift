@@ -12,7 +12,9 @@ import FirebaseAuth
 import FirebaseDatabase
 import LBTAComponents
 
-
+import Foundation
+import SwiftyJSON
+import TRON
 
 class ViewController: DatasourceController {
     
@@ -200,7 +202,6 @@ class ViewController: DatasourceController {
         
         /* LOGIC */
         scheduledTimerWithTimeInterval()
-        
     }
     
     // Text Field (Movie Name)

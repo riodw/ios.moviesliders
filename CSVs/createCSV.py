@@ -101,7 +101,7 @@ elif(len(array[0]) == 4):
 # If only 5 active
 elif(len(array[0]) == 5):
     for x in array:
-        CSV += '"' + str(total_time) + '",' + '"' + str(x[0]) + '",' + '"' + str(x[1]) + '",' + '"' + str(x[2]) + '",' + '"' + str(x[3]) + '",' + '"' + str(x[3]) + '"'
+        CSV += '"' + str(total_time) + '",' + '"' + str(x[0]) + '",' + '"' + str(x[1]) + '",' + '"' + str(x[2]) + '",' + '"' + str(x[3]) + '",' + '"' + str(x[4]) + '"'
         CSV += '\n'
         # CSV = CSV[:-1]
         total_time += 2

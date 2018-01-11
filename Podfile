@@ -10,5 +10,6 @@ target 'ios.moviesliders' do
   pod 'Firebase/Database'
   pod 'Firebase/Auth'
   pod 'LBTAComponents'
+  pod 'TRON'
 
 end
